@@ -1,15 +1,15 @@
-package Test;
+package test;
 
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static Data.Data.Registration.getRegisteredUser;
-import static Data.Data.Registration.getUser;
-import static Data.Data.getRandomLogin;
-import static Data.Data.getRandomPassword;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static data.data.Registration.getRegisteredUser;
+import static data.data.Registration.getUser;
+import static data.data.getRandomLogin;
+import static data.data.getRandomPassword;
 
 class AuthTest {
     @BeforeEach
@@ -18,7 +18,7 @@ class AuthTest {
     }
 
     @Test
-    void HappyPath() {
+    void happyPath() {
         var activeUser = getRegisteredUser("active");
         $("[data-test-id='login'] input").setValue(activeUser.getLogin());
         $("[data-test-id='password'] input").setValue(activeUser.getPassword());
@@ -28,7 +28,7 @@ class AuthTest {
     }
 
     @Test
-    void SadPathBlockedUser() {
+    void sadPathBlockedUser() {
         var blockedUser = getRegisteredUser("blocked");
         $("[data-test-id='login'] input").setValue(blockedUser.getLogin());
         $("[data-test-id='password'] input").setValue(blockedUser.getPassword());
@@ -39,7 +39,7 @@ class AuthTest {
     }
 
     @Test
-    void SadPathInvalidUser() {
+    void sadPathInvalidUser() {
         var invalidUser = getUser("active");
         $("[data-test-id='login'] input").setValue(invalidUser.getLogin());
         $("[data-test-id='password'] input").setValue(invalidUser.getPassword());
@@ -50,7 +50,7 @@ class AuthTest {
     }
 
     @Test
-    void SadPathInvalidLogin() {
+    void sadPathInvalidLogin() {
         var invalidUser = getRegisteredUser("active");
         var randomLogin = getRandomLogin();
         $("[data-test-id='login'] input").setValue(randomLogin);
@@ -62,7 +62,7 @@ class AuthTest {
     }
 
     @Test
-    void SadPathInvalidPassword() {
+    void sadPathInvalidPassword() {
         var invalidUser = getRegisteredUser("active");
         var randomPassword = getRandomPassword();
         $("[data-test-id='login'] input").setValue(invalidUser.getLogin());

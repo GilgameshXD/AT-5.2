@@ -1,4 +1,4 @@
-package Data;
+package data;
 
 import com.github.javafaker.Faker;
 import io.restassured.builder.RequestSpecBuilder;
@@ -12,7 +12,7 @@ import java.util.Locale;
 import static io.restassured.RestAssured.given;
 
 
-public class Data {
+public class data {
     private static final RequestSpecification requestSpec = new RequestSpecBuilder()
             .setBaseUri("http://localhost")
             .setPort(9999)
@@ -22,7 +22,7 @@ public class Data {
             .build();
     private static final Faker faker = new Faker(new Locale("en"));
 
-    private Data() {
+    private data() {
     }
 
     private static RegistrationDto sendRequest(RegistrationDto user) {
