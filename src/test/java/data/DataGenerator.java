@@ -12,7 +12,7 @@ import java.util.Locale;
 import static io.restassured.RestAssured.given;
 
 
-public class data {
+public class DataGenerator {
     private static final RequestSpecification requestSpec = new RequestSpecBuilder()
             .setBaseUri("http://localhost")
             .setPort(9999)
@@ -22,7 +22,7 @@ public class data {
             .build();
     private static final Faker faker = new Faker(new Locale("en"));
 
-    private data() {
+    private DataGenerator() {
     }
 
     private static RegistrationDto sendRequest(RegistrationDto user) {

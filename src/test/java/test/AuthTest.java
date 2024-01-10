@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static data.data.Registration.getRegisteredUser;
-import static data.data.Registration.getUser;
-import static data.data.getRandomLogin;
-import static data.data.getRandomPassword;
+import static data.DataGenerator.Registration.getRegisteredUser;
+import static data.DataGenerator.Registration.getUser;
+import static data.DataGenerator.getRandomLogin;
+import static data.DataGenerator.getRandomPassword;
 
 class AuthTest {
     @BeforeEach
