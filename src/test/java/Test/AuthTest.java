@@ -1,9 +1,8 @@
 package Test;
+
 import com.codeborne.selenide.Condition;
-import org.junit.jupiter.api.Test;
-
 import org.junit.jupiter.api.BeforeEach;
-
+import org.junit.jupiter.api.Test;
 
 import static Data.Data.Registration.getRegisteredUser;
 import static Data.Data.Registration.getUser;
@@ -17,6 +16,7 @@ class AuthTest {
     void setup() {
         open("http://localhost:9999");
     }
+
     @Test
     void HappyPath() {
         var activeUser = getRegisteredUser("active");
@@ -26,6 +26,7 @@ class AuthTest {
         $("h2").shouldHave(Condition.text("Личный кабинет"))
                 .shouldBe(Condition.visible);
     }
+
     @Test
     void SadPathBlockedUser() {
         var blockedUser = getRegisteredUser("blocked");
@@ -36,6 +37,7 @@ class AuthTest {
                 .shouldHave(Condition.text("Ошибка! Пользователь заблокирован"))
                 .shouldBe(Condition.visible);
     }
+
     @Test
     void SadPathInvalidUser() {
         var invalidUser = getUser("active");
@@ -46,6 +48,7 @@ class AuthTest {
                 .shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"))
                 .shouldBe(Condition.visible);
     }
+
     @Test
     void SadPathInvalidLogin() {
         var invalidUser = getRegisteredUser("active");
@@ -57,6 +60,7 @@ class AuthTest {
                 .shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"))
                 .shouldBe(Condition.visible);
     }
+
     @Test
     void SadPathInvalidPassword() {
         var invalidUser = getRegisteredUser("active");
